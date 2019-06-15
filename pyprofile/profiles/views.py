@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Profile
+from .forms import ProfileForm
 
 # Create your views here.
 
@@ -10,7 +11,14 @@ def home_view(request):
 
 
 def add_view(request):
-    return HttpResponse('<h1>Add view</h1>')
+    form = ProfileForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = ProfileForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'add.html', context)
 
 
 def list_view(request):
