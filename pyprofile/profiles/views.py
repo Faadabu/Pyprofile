@@ -5,11 +5,15 @@ from .models import Profile
 # Create your views here.
 
 
-def index(request):
-    profile = Profile.objects.all()
-    return render(request, 'index.html', {'profile': profile})
-
-
 def home_view(request):
-    return HttpResponse('<h1>home view</h1>')
+    return render(request, 'index.html')
+
+
+def add_view(request):
+    return HttpResponse('<h1>Add view</h1>')
+
+
+def list_view(request):
+    profile = Profile.objects.all()
+    return render(request, 'list.html', {'profiles': profile})
 

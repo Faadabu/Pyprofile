@@ -3,19 +3,12 @@
 
 
 {% block content %}
-    <h1>Profiles</h1>
-        <div class="row">
-            {% for product in products %}
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="{{product.image_url}}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{product.name}}</h5>
-                    <p class="card-text">${{product.price}}</p>
-                    <a href="/products/new" class="btn btn-primary">Add to Cart</a>
-                  </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+    <h3>Home page</h3>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <p class="lead">You can add and list users here</p>
+          <a class="btn btn-primary btn-lg" href="/add" role="button">Add Users</a>
+          <a class="btn btn-primary btn-lg" href="/list" role="button">List Users</a>
+      </div>
+    </div>
 {% endblock %}
